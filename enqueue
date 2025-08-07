@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class Lab4ForStd {
+    public static int maxsize = 5;
+    public static int[] number = new int[maxsize];
+    public static int front = 0;
+    public static int rear = 0;
+    public static int count = 0;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Enqueue operation
+        while (count < maxsize) {
+            System.out.print("Enter a positive integer: ");
+            int num = scanner.nextInt();
+
+            // Ensure the number is positive
+            while (num <= 0) {
+                System.out.print("Invalid input. Enter a positive integer: ");
+                num = scanner.nextInt();
+            }
+
+            enqueue(num);
+        }
+
+        System.out.println("Queue is full.");
+
+        // Dequeue operation
+        while (count > 0) {
+            dequeue();
+        }
+
+        System.out.println("Queue is empty.");
+
+        scanner.close();
+    }
+
+    public static void enqueue(int num) {
+        if (count < maxsize) {
+            number[rear] = num;
+            rear = (rear + 1) % maxsize;
+            count++;
+        }
+    }
+
+    public static void dequeue() {
+        if (count > 0) {
+            System.out.println("Dequeued: " + number[front]);
+            front = (front + 1) % maxsize;
+            count--;
+        }
+    }
+}

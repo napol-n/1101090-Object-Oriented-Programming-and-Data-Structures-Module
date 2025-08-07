@@ -1,0 +1,38 @@
+package LabArray;
+
+class LabArray
+{
+    public static void main(String[] args)
+    {
+        SimpleArray arr; // reference
+        arr = new SimpleArray(100); // create LowArray object
+        int nElems = 0; // number of items in array
+        int j; // loop variable
+
+        arr.setElem(0, 77); // insert 10 items
+        arr.setElem(1, 99);
+        arr.setElem(2, 44);
+        arr.setElem(3, 55);
+        arr.setElem(4, 22);
+        arr.setElem(5, 88);
+        arr.setElem(6, 11);
+        arr.setElem(7, 00);
+        arr.setElem(8, 66);
+        arr.setElem(9, 33);
+        nElems = 10; // now 10 items in array
+
+        for(j=0; j<nElems; j++) // display items
+            System.out.print(arr.getElem(j) + " ");
+        System.out.println(" ");
+
+		System.out.println(arr.findMax(nElems));
+
+		arr.removeMax(nElems);
+    	nElems--;
+		for(j=0; j<nElems; j++) // display items after remove max
+			System.out.print(arr.getElem(j) + " ");
+		System.out.println(" ");
+
+
+    }  //end main()
+}  //end class LabArray
